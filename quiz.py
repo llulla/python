@@ -109,14 +109,94 @@ print(sample(lst,1) #
 #         print("[ ] {}번째 손님 (소요시간 : {}분)".format(client_no, times))
 # print("총 탑승 승개 : {}분".format(count))
 
-#풀이
-from random import *
-cnt=0 # 총 탑승 승객 수
-for i in range(1,51): #1~50 이라는 수(승객)
-    time=randrange(5,51) # 5분~50분 소요시간
-    if 5<= time <=15: #5분 ~15분 이내의 손님, 탑승 승객 수 증가 처리
-        print("[o] {0}번째 손님 (소요시간 : {1}분".format(i,time))
-        cnt+=1
-    else :
-        print("[ ] {0}번째 손님 (소요시간 : {1}분".format(i,time))
-print("총 탑승 승객 : {0}분".format(cnt))
+# #풀이
+# from random import *
+# cnt=0 # 총 탑승 승객 수
+# for i in range(1,51): #1~50 이라는 수(승객)
+#     time=randrange(5,51) # 5분~50분 소요시간
+#     if 5<= time <=15: #5분 ~15분 이내의 손님, 탑승 승객 수 증가 처리
+#         print("[o] {0}번째 손님 (소요시간 : {1}분".format(i,time))
+#         cnt+=1
+#     else :
+#         print("[ ] {0}번째 손님 (소요시간 : {1}분".format(i,time))
+# print("총 탑승 승객 : {0}분".format(cnt))
+
+"""quiz) 표준 체중을 구하는 프로그램을 작성하시오
+
+* 표준 체중 : 각 개인의 키에 적당한 체중
+
+(성별에 따른 공식)
+남자 : 키(m) x 키(m) x 22
+여자 : 키(m) x 키(m) x 21
+
+조건1 : 표준 체중은 별도의 함수 내에서 계산
+  *함수명 : std_weight
+  *전달값 : 키(height) 성별(gender) 
+
+조건2 : 표준 체중은 소수점 둘째자리까지 표시
+
+(출력예제)
+키 175cm 남자의 표준 체중은 67.38kg 입니다."""
+
+# #내가한거
+# weight=0
+# def std_weight(gender, height):
+#     global weight
+#     weight = int(height)
+#     weight *= weight
+#     if gender =="남자":
+#          weight=weight*22 *0.0001
+#          return weight
+#     elif gender =="여자":
+#          weight=weight*21 *0.0001
+#          return weight
+#     else :
+#         print("잘못입력했습니다. 다시 입력해주세요") 
+
+# gender= input("성별을 입력하세요 (남자, 여자) : ")
+# height= input("키를 입력하세요(cm) : ")
+# weight = round(std_weight(gender,height),2)
+# print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다.".format(height, gender, weight))
+
+# #풀이
+
+# def std_weight(height, gender):
+#     if gender == "남자":
+#         return height*height *22
+#     else :
+#         return height*height *21
+
+# height = 164
+# gender = "여자"
+# weight = round(std_weight(height /100, gender),2 )
+# print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다.".format(height, gender, weight))
+
+
+"""quiz) 당신의 회사에서는 매주 1회 작성해야 하는 보고서가 있습니다.
+보고서는 항상 아래와 같은 형태로 출력되어야 합니다.
+
+- x 주차 주간보고 - 
+부서 : 
+이름 : 
+업무 요약 : 
+
+1주차부터 50주차까지의 보고서 파일을 만드는 프로그램을 작성하시오
+
+조건 : 파일명은 '1주차.txt', 2주차.txt" ... 와 같이 만듭니다."""
+
+# #내가 한거
+# import pickle
+# weekly=1
+# while weekly <51:
+#     with open("{0}주차.txt".format(weekly), "w", encoding="utf8") as week_file:
+#         week_file.write("- {0} 주차 주간보고 - \n부서 :\n이름 :\n업무 요약 :".format(weekly))
+#     weekly+=1
+
+# #풀이
+# for i in range(1,51):
+#     with open(str(i)+"주차.txt","w", encoding="utf8") as report_file:
+#         report_file.write("- {0} 주차 주간보고 - ".format(i))
+#         report_file.write("\n부서 : ")
+#         report_file.write("\n이름 : ")
+#         report_file.write("\n업무 요약 :)
+        
