@@ -200,3 +200,4 @@ print(sample(lst,1) #
 #         report_file.write("\n이름 : ")
 #         report_file.write("\n업무 요약 :)
         
+
