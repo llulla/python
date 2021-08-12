@@ -568,10 +568,10 @@ class Attackunit(unit):
 
 """상속"""
 #    클래스간 맴버변수를 상속 받아 사용하는 것
-class Attackunit2(unit):
-    def __init__(self, name, hp, damage, moving):
-        unit.__init__(self,name,hp,speed)
-        self.moving = moving
+# class Attackunit2(unit):
+#     def __init__(self, name, hp, damage, moving):
+#         unit.__init__(self,name,hp,speed)
+#         self.moving = moving
 
 """다중 상속"""
 
@@ -590,13 +590,13 @@ class FlyableAttackUnit(Attackunit, Flyable):
     def move(self,location):
         print("[공중유닛 이동]")
         self.fly(self.name, location)
-vulture = Attackunit("벌처", 80,10,20)
+# vulture = Attackunit("벌처", 80,10,20)
 
-battlecruiser = FlyableAttackUnit("배틀크루저", 500, 25, 3)
+# battlecruiser = FlyableAttackUnit("배틀크루저", 500, 25, 3)
 
-vulture.move("11시")
-# battlecruiser.fly(battlecruiser.name, "9시") #오버라이딩을 사용하여 똑같이 move만으로 사용가능하게
-battlecruiser.move("9시")
+# vulture.move("11시")
+# # battlecruiser.fly(battlecruiser.name, "9시") #오버라이딩을 사용하여 똑같이 move만으로 사용가능하게
+# battlecruiser.move("9시")
 
 # valkyrie = FlyableAttackUnit("발키리", 200, 6,5)
 # valkyrie.fly(valkyrie.name, "3시")
@@ -604,9 +604,9 @@ battlecruiser.move("9시")
 
 """오버라이딩"""
 
-vulture.move("11시")
-# battlecruiser.fly(battlecruiser.name, "9시") #오버라이딩을 사용하여 똑같이 move만으로 사용가능하게
-battlecruiser.move("9시")
+# vulture.move("11시")
+# # battlecruiser.fly(battlecruiser.name, "9시") #오버라이딩을 사용하여 똑같이 move만으로 사용가능하게
+# battlecruiser.move("9시")
 
 """pass"""
 
@@ -663,11 +663,11 @@ class BuildingUnit(unit):
 
 
 # #사용자 정의 예외처리
-class BigNumberError(Exception):
-    def __init__(self, msg):
-        self.msg = msg
-    def __str__(self):
-        return self.msg
+# class BigNumberError(Exception):
+#     def __init__(self, msg):
+#         self.msg = msg
+#     def __str__(self):
+#         return self.msg
 
 # #한자리 숫자 나누기 전용 계산기
 # try:
@@ -684,21 +684,123 @@ class BigNumberError(Exception):
 #     print("에러가 발생하였습니다. 한자리 숫자만 입력하세요")
 #     print(err)
 
-"""finally"""
-# 예외처리 중에서 무조건 실행되는 부분
+# """finally"""
+# # 예외처리 중에서 무조건 실행되는 부분
 
-try:
-    print(" 한 자리 숫자 나누기 전용 계산기입니다.")
-    num1 = int(input("첫 번째 숫자를 입력하세요 : "))
-    num2 = int(input("두 번째 숫자를 입력하세요 : "))
-    if num1 >= 10 or num2 >= 10:
-        # raise ValueError #에러가 발생했으니 거기로가라
-        raise BigNumberError("입력값 : {0}, {1}".format(num1, num2))
-    print("{0} / {1} = {2}".format(num1,num2, int(num1/num2)))
-except ValueError:
-    print("잘못된 값을 입력하였습니다. 한 자리 숫자만 입력하세요.")
-except BigNumberError as err:
-    print("에러가 발생하였습니다. 한자리 숫자만 입력하세요")
-    print(err)
-finally:
-    print("계산기를 이용해 주셔서 감사합니다.")
+# try:
+#     print(" 한 자리 숫자 나누기 전용 계산기입니다.")
+#     num1 = int(input("첫 번째 숫자를 입력하세요 : "))
+#     num2 = int(input("두 번째 숫자를 입력하세요 : "))
+#     if num1 >= 10 or num2 >= 10:
+#         # raise ValueError #에러가 발생했으니 거기로가라
+#         raise BigNumberError("입력값 : {0}, {1}".format(num1, num2))
+#     print("{0} / {1} = {2}".format(num1,num2, int(num1/num2)))
+# except ValueError:
+#     print("잘못된 값을 입력하였습니다. 한 자리 숫자만 입력하세요.")
+# except BigNumberError as err:
+#     print("에러가 발생하였습니다. 한자리 숫자만 입력하세요")
+#     print(err)
+# finally:
+#     print("계산기를 이용해 주셔서 감사합니다.")
+
+"""모듈
+therter_mobule.py
+"""
+# import therter_mobule
+# therter_mobule.price(3) #3명이서 영화보러갔을때 가격
+# therter_mobule.price_moning(4) #4명이서 조조할인 영화보러 갔을 때
+# therter_mobule.price_soldier(5) #5명의 군인이 영화보러갔을때
+
+# import therter_mobule as mv
+# mv.price(3)
+# mv.price_moning(4)
+# mv.price_soldier(5)
+
+# from therter_mobule import *
+# price(3)
+# price_moning(4)
+# price_soldier(5)
+
+# from therter_mobule import price, price_moning
+# price(3)
+# price_moning(4)
+
+# from therter_mobule import price_soldier as price
+# price(5)
+
+"""패키지"""
+# import travel.tailand
+# trip_to = travel.tailand.ThailandPackage()
+# trip_to.detail
+
+# from travel.tailand import ThailandPackage
+# trip_to = ThailandPackage()
+# trip_to.detail()
+
+# from travel import vietnam
+# trip_to = vietnam.VietnamPackage()
+# trip_to.detail()
+
+# from travel import * 
+# # trip_to = tailand.ThailandPackage()
+# # trip_to.detail() 
+
+# #모듈 위치 확인
+
+# import inspect
+# import random
+# print(inspect.getfile(random))
+# print(inspect.getfile(tailand))
+
+
+"""내장함수"""
+#구글에 list of python builtins 검색해보면 내장함수 목록을 볼수 있음
+
+# #input : 사용자 입력을 받는 ㅎ마수
+# language = input("무슨 언어를 좋아하세요?")
+
+# #dir : 어떤 객체를 넘겨줬을 때 그 객체가 어떤 변수와 함수를 가지고 있는지 표시
+# print(dir())
+# import random
+# print(dir())
+# import pickle
+# print(dir())
+
+# name = "jim"
+# print(dir(name))
+
+
+# """외장함수"""
+# #list of python modules 로 검색해서 외장함수 목록을 볼 수 있음
+
+# #glob : 경로 내의 폴더 / 파일 목록 조회 (윈도우 dir)
+# import glob
+# print(glob.glob("*.py")) #확장자가 py인 모든 파일
+
+#os :  운영체제에서 제공하는 기본 기능
+# import os
+# print(os.getcwd()) #현재 디렉토리
+
+# folder = "sample_dir"
+
+# if os.path.exists(folder):
+#     print("이미 존재하는 폴더입니다.")
+#     os.rmdir(folder)
+#     print(folder, "폴더를 삭제하였습니다.")
+# else:
+#     os.makedirs(folder)
+#     print(folder, "폴더를 생성하였습니다.")
+
+# print(os.listdir())
+
+import time #시간관련 함수
+print(time.localtime())
+print(time.strftime("%Y-%M-%d %h:%M:%S"))
+
+import datetime
+print("오늘 날짜는 ", datetime.date.today())
+
+# timedelta : 두 날짜 사이의 간격
+today = datetime.date.today() #오늘 날짜 저장
+td = datetime.timedelta(days=100) #100일 저장
+print("우리가 만난지 100일은 ", today + td,"입니다.")
